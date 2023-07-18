@@ -3,14 +3,14 @@ let score = 0;
 let rows = 4;
 let columns = 4;
 
+window.onload = function () {
+  setGame();
+};
+
 let touchStartX = 0;
 let touchStartY = 0;
 let touchEndX = 0;
 let touchEndY = 0;
-
-window.onload = function () {
-  setGame();
-};
 
 document.addEventListener('touchstart', function (event) {
   touchStartX = event.touches[0].clientX;
@@ -19,7 +19,7 @@ document.addEventListener('touchstart', function (event) {
 
 document.addEventListener('touchmove', function (event) {
   event.preventDefault();
-}, { passive: false });
+});
 
 document.addEventListener('touchend', function (event) {
   touchEndX = event.changedTouches[0].clientX;
@@ -62,6 +62,7 @@ function handleSwipe() {
       setNewTile('up');
     }
   }
+  document.getElementById('score').innerText = score;
 }
 
 function setGame() {
