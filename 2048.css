@@ -154,21 +154,16 @@ hr {
 @media (max-width: 767px) {
   /* Styles for mobile */
   .board-container {
-    width: 250px;
-    height: 250px;
-    margin-top: 20px;
+    width: 90%;
+    max-width: 250px;
+    margin-top: 40px;
   }
 
   .score-card {
     width: 90%;
-    max-width: 450px;
-    margin-top: 20px;
+    max-width: 250px;
+    margin-top: 40px;
   }
-
-  /* #board {
-    max-width: 260px;
-    max-height: 280px;
-  } */
 
   .tile {
     width: 57.5px;
