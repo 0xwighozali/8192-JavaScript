@@ -25,7 +25,7 @@ document.addEventListener('touchend', function (event) {
   touchEndX = event.changedTouches[0].clientX;
   touchEndY = event.changedTouches[0].clientY;
 
-  const boardElement = document.getElementById('board-container');
+  const boardElement = document.getElementById('board');
   const boardRect = boardElement.getBoundingClientRect();
 
   const isTouchInsideBoard = touchEndX >= boardRect.left && touchEndX <= boardRect.right && touchEndY >= boardRect.top && touchEndY <= boardRect.bottom;
