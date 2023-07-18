@@ -12,7 +12,7 @@ let touchStartY = 0;
 let touchEndX = 0;
 let touchEndY = 0;
 
-const boardElement = document.getElementById('board');
+const boardElement = document.getElementById('board-container');
 
 boardElement.addEventListener('touchstart', function (event) {
   touchStartX = event.touches[0].clientX;
