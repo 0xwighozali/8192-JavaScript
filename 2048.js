@@ -6,28 +6,32 @@ let columns = 4;
 window.onload = function () {
   setGame();
 };
-
 let touchStartX = 0;
 let touchStartY = 0;
 let touchEndX = 0;
 let touchEndY = 0;
 
-const boardElement = document.getElementById('board-container');
-
-boardElement.addEventListener('touchstart', function (event) {
+document.addEventListener('touchstart', function (event) {
   touchStartX = event.touches[0].clientX;
   touchStartY = event.touches[0].clientY;
 });
 
-boardElement.addEventListener('touchmove', function (event) {
+document.addEventListener('touchmove', function (event) {
   event.preventDefault();
 });
 
-boardElement.addEventListener('touchend', function (event) {
+document.addEventListener('touchend', function (event) {
   touchEndX = event.changedTouches[0].clientX;
   touchEndY = event.changedTouches[0].clientY;
 
-  handleSwipe();
+  const boardElement = document.getElementById('board-container');
+  const boardRect = boardElement.getBoundingClientRect();
+
+  const isTouchInsideBoard = touchEndX >= boardRect.left && touchEndX <= boardRect.right && touchEndY >= boardRect.top && touchEndY <= boardRect.bottom;
+
+  if (isTouchInsideBoard) {
+    handleSwipe();
+  }
 });
 
 function handleSwipe() {
@@ -60,18 +64,18 @@ function handleSwipe() {
 }
 
 function setGame() {
-  board = [
-    [0, 0, 0, 0],
-    [0, 0, 0, 0],
-    [0, 0, 0, 0],
-    [0, 0, 0, 0],
-  ];
   // board = [
-  //   [2, 4, 8, 16],
-  //   [32, 64, 128, 256],
-  //   [512, 1024, 2048, 4096],
-  //   [8192, 0, 0, 0],
+  //   [0, 0, 0, 0],
+  //   [0, 0, 0, 0],
+  //   [0, 0, 0, 0],
+  //   [0, 0, 0, 0],
   // ];
+  board = [
+    [2, 4, 8, 16],
+    [32, 64, 128, 256],
+    [512, 1024, 2048, 4096],
+    [8192, 0, 0, 0],
+  ];
 
   // board = [
   //   [2, 4, 8, 16],
