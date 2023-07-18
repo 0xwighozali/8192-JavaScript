@@ -6,32 +6,28 @@ let columns = 4;
 window.onload = function () {
   setGame();
 };
+
 let touchStartX = 0;
 let touchStartY = 0;
 let touchEndX = 0;
 let touchEndY = 0;
 
-document.addEventListener('touchstart', function (event) {
+const boardElement = document.getElementById('board');
+
+boardElement.addEventListener('touchstart', function (event) {
   touchStartX = event.touches[0].clientX;
   touchStartY = event.touches[0].clientY;
 });
 
-document.addEventListener('touchmove', function (event) {
+boardElement.addEventListener('touchmove', function (event) {
   event.preventDefault();
 });
 
-document.addEventListener('touchend', function (event) {
+boardElement.addEventListener('touchend', function (event) {
   touchEndX = event.changedTouches[0].clientX;
   touchEndY = event.changedTouches[0].clientY;
 
-  const boardElement = document.getElementById('board');
-  const boardRect = boardElement.getBoundingClientRect();
-
-  const isTouchInsideBoard = touchEndX >= boardRect.left && touchEndX <= boardRect.right && touchEndY >= boardRect.top && touchEndY <= boardRect.bottom;
-
-  if (isTouchInsideBoard) {
-    handleSwipe();
-  }
+  handleSwipe();
 });
 
 function handleSwipe() {
