@@ -1,100 +1,180 @@
 body {
-    font-family: Arial, Helvetica, sans-serif;
-    text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
 }
 
 hr {
-    width: 500px;
+  width: 90%;
+  max-width: 500px;
+}
+
+.board-container {
+  width: 90%;
+  max-width: 450px;
+  height: auto;
+  background-color: rgb(255, 255, 255);
+  border: 6px solid #ffffff;
+  border-radius: 15px;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+  margin: 0 auto;
+  margin-top: 20px;
+  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.score-card {
+  width: 90%;
+  max-width: 450px;
+  height: 40px;
+  background-color: #f2f2f2;
+  margin: 20px auto;
+  border-radius: 5px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.score-card h2 {
+  font-size: 14px;
+  margin: auto;
 }
 
 #board {
-    width: 400px;
-    height: 400px;
-
-    background-color: #cdc1b5;
-    border: 6px solid #bbada0;
-
-    margin: 0 auto;
-    display: flex;
-    flex-wrap: wrap;
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  background-color: rgb(255, 255, 255);
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .tile {
-    width: 90px;
-    height: 90px;
-    border: 5px solid #bbada0;
-
-    font-size: 40px;
-    font-weight: bold;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  width: 90px;
+  height: 90px;
+  border: 5px solid #ffffff;
+  border-radius: 15px;
+  font-size: 30px;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #000000;
+  animation: show 250ms ease-in-out;
+  transition: 100ms ease-in-out;
 }
 
+@keyframes show {
+  0% {
+    opacity: 0.5;
+    transform: scale(0);
+  }
+}
 
 /* colored tiles */
-
+.x0 {
+  background-color: #f4f2f2;
+}
 .x2 {
-    background-color: #eee4da;
-    color: #727371;
+  background-color: #99ddff;
 }
 
 .x4 {
-    background-color: #ece0ca;
-    color: #727371;
+  background-color: #88ccff;
 }
 
 .x8 {
-    background-color: #f4b17a;
-    color: white;
+  background-color: #77bbff;
 }
 
-.x16{
-    background-color: #f59575;
-    color: white;
+.x16 {
+  background-color: #66aaff;
 }
 
-.x32{
-    background-color: #f57c5f;
-    color: white;
+.x32 {
+  background-color: #5599ff;
 }
 
-.x64{
-    background-color: #f65d3b;
-    color: white;
+.x64 {
+  background-color: #4488ff;
 }
 
-.x128{
-    background-color: #edce71;
-    color: white;
+.x128 {
+  background-color: #3377ff;
 }
 
-.x256{
-    background-color: #edcc63;
-    color: white;
+.x256 {
+  background-color: #2266ff;
 }
 
-.x512{
-    background-color: #edc651;
-    color: white;
+.x512 {
+  background-color: #1155ff;
 }
 
-.x1024{
-    background-color: #eec744;
-    color: white;
+.x1024 {
+  background-color: #0044ff;
 }
 
-.x2048{
-    background-color: #ecc230;
-    color: white;
+.x2048 {
+  background-color: #0033ee;
 }
 
 .x4096 {
-    background-color: #fe3d3d;
-    color: white;
+  background-color: #0022dd;
 }
 
 .x8192 {
-    background-color: #ff2020;
-    color: white;
+  background-color: #ffd500;
+}
+
+/* Responsive styles */
+@media (min-width: 768px) {
+  /* Styles for desktop */
+  .board-container {
+    width: 400px;
+    max-width: none;
+    margin-top: 40px;
+  }
+
+  .score-card {
+    width: 400px;
+    max-width: none;
+    margin-top: 60px;
+  }
+
+  #board {
+    max-width: none;
+  }
+}
+
+@media (max-width: 767px) {
+  /* Styles for mobile */
+  .board-container {
+    width: 250px;
+    height: 250px;
+    margin-top: 20px;
+  }
+
+  .score-card {
+    width: 90%;
+    max-width: 450px;
+    margin-top: 20px;
+  }
+
+  /* #board {
+    max-width: 260px;
+    max-height: 280px;
+  } */
+
+  .tile {
+    width: 57.5px;
+    height: 57.5px;
+    font-size: 15px;
+    border: 2.5px solid #ffffff;
+    border-radius: 10px;
+  }
 }
